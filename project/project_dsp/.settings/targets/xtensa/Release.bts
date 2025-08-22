@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BuildTarget tool="xtensa" version="1.0">
+    <BuildSettings>
+        <BaseSettings path="project">
+            <PreprocessorOptions>
+                <StringListMapOptions>
+                    <StringListMapEntry>
+                        <key>Includes</key>
+                        <value flag="-I" inheritance="prepend">
+                            <ListEntry>${workspace_loc}/../lib/lib_freertos/include</ListEntry>
+                            <ListEntry>${workspace_loc}/../lib/lib_freertos/include/portable/XCC/Xtensa</ListEntry>
+                            <ListEntry>${workspace_loc}/../bsp/include</ListEntry>
+                            <ListEntry>${workspace_loc}/../lib/ipc/ipc/include</ListEntry>
+                            <ListEntry>${workspace_loc}/../lib/ipc/rpc/hal/interfaces</ListEntry>
+                            <ListEntry>${workspace_loc}/../lib/ipc/rpc/include</ListEntry>
+                            <ListEntry>${workspace_loc}/../lib/ipc/rpc/src/aidl</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                </StringListMapOptions>
+                <KeyValueListMapOptions>
+                    <KeyValueListMapEntry>
+                        <key>Defines</key>
+                        <value flag="-D" inheritance="append">
+                            <ListEntry key="XT_BOARD" value=""/>
+                            <ListEntry key="CONFIG_PLATFORM_AMEBALITE" value=""/>
+                            <ListEntry key="RPC_KM4_DSP" value=""/>
+                            <ListEntry key="CONFIG_IMQ_EN" value="0"/>
+                            <ListEntry key="CONFIG_RPC_EN" value="1"/>
+                        </value>
+                    </KeyValueListMapEntry>
+                </KeyValueListMapOptions>
+            </PreprocessorOptions>
+            <CompilerOptions>
+                <SingleFlagMapOptions>
+                    <SingleFlagMapEntry>
+                        <key>CompilerEnableLongCall</key>
+                        <value flag="-mlongcalls" use="true"/>
+                    </SingleFlagMapEntry>
+                    <SingleFlagMapEntry>
+                        <key>CompilerPlaceLiteralinText</key>
+                        <value flag="-mtext-section-literals" use="true"/>
+                    </SingleFlagMapEntry>
+                    <SingleFlagMapEntry>
+                        <key>FunctionSections</key>
+                        <value flag="-ffunction-sections" use="true"/>
+                    </SingleFlagMapEntry>
+                    <SingleFlagMapEntry>
+                        <key>DataSections</key>
+                        <value flag="-fdata-sections" use="true"/>
+                    </SingleFlagMapEntry>
+                </SingleFlagMapOptions>
+                <FlagValueMapOptions>
+                    <FlagValueMapEntry>
+                        <key>Debug</key>
+                        <value level="-3" flag="-g" use="true"/>
+                    </FlagValueMapEntry>
+                    <FlagValueMapEntry>
+                        <key>Optimization</key>
+                        <value level="2" flag="-O" use="true"/>
+                    </FlagValueMapEntry>
+                </FlagValueMapOptions>
+                <StringListMapOptions>
+                    <StringListMapEntry>
+                        <key>CompilerAdditionalOptions</key>
+                        <value flag="" inheritance="append">
+                            <ListEntry>-fno-strict-aliasing -fno-strict-overflow -fno-delete-null-pointer-checks -Wconversion -Winteger-overflow -Wshift-overflow -Wconstant-conversion -Woverflow</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                </StringListMapOptions>
+            </CompilerOptions>
+            <AssemblerOptions>
+                <SingleFlagMapOptions>
+                    <SingleFlagMapEntry>
+                        <key>AssemblerLongCall</key>
+                        <value flag="--longcalls" use="true"/>
+                    </SingleFlagMapEntry>
+                </SingleFlagMapOptions>
+            </AssemblerOptions>
+            <LinkerOptions>
+                <BooleanMapOptions>
+                    <BooleanMapEntry>
+                        <key>CreateMinsize</key>
+                        <value selected="true"/>
+                    </BooleanMapEntry>
+                    <BooleanMapEntry>
+                        <key>GenerateMapFile</key>
+                        <value selected="true"/>
+                    </BooleanMapEntry>
+                </BooleanMapOptions>
+                <StringListMapOptions>
+                    <StringListMapEntry>
+                        <key>LinkerAdditionalOptions</key>
+                        <value flag="" inheritance="append">
+                            <ListEntry>--wrap=malloc&#13;
+--wrap=realloc&#13;
+--wrap=free&#13;
+--wrap=calloc&#13;
+--wrap=_malloc_r&#13;
+--wrap=_realloc_r&#13;
+--wrap=_free_r&#13;
+--wrap=_calloc_r</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                    <StringListMapEntry>
+                        <key>Libraries</key>
+                        <value flag="-l" inheritance="prepend">
+                            <ListEntry>idma</ListEntry>
+                            <ListEntry>xtutil</ListEntry>
+                            <ListEntry>rpc</ListEntry>
+                            <ListEntry>freertos</ListEntry>
+                            <ListEntry>uuid</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                    <StringListMapEntry>
+                        <key>LibrarySearchPath</key>
+                        <value flag="-L" inheritance="prepend">
+                            <ListEntry>${workspace_loc}/../lib/ipc/prebuilts/$(TARGET_CONFIG)</ListEntry>
+                            <ListEntry>${workspace_loc}/../lib/lib_freertos/freertos_lib/$(TARGET_CONFIG)</ListEntry>
+                            <ListEntry>${workspace_loc}/../lib/lib_uuid/uuid_lib/$(TARGET_CONFIG)</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                    <StringListMapEntry>
+                        <key>CompilerOptionsForLinker</key>
+                        <value flag="" inheritance="append">
+                            <ListEntry>-Wl,-gc-sections</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                </StringListMapOptions>
+                <LinkerSupport custom="true" key="-mlsp=" value="${workspace_loc}/../project/RTK_LSP/RI-2021.8/HIFI5_PROD_1123_asic_UPG/RTK_LSP"/>
+            </LinkerOptions>
+        </BaseSettings>
+    </BuildSettings>
+</BuildTarget>

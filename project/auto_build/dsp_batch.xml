@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<batch_build_settings>
+    <newEntry cleanBeforeBuild="false" name="DSP" stopOnError="false" type="project">
+        <XtensaBuildEntry configName="HIFI5_PROD_1123_asic_wUPG" isBuildEnabled="true" projectName="project_dsp" targetName="Release"/>
+    </newEntry>
+</batch_build_settings>

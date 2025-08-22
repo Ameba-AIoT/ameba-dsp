@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xxProperties>
+                                                                                                                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <propertyGroup name="project.information">
+                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <version value="3.0"/>
+                                                                                                                                                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </propertyGroup>
+                                                                                                                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <propertyGroup name="build.property">
+                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <buildTarget defaultTarget="Release"/>
+                                                                                                                                                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </propertyGroup>
+                                                                                                                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <propertyGroup name="build.exclusion.data">
+                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <buildExclusionDatas>
+            <exclusionSet name="Default" selected="1">
+                <excludedEntry data="/.*/bin/.*"/>
+            </exclusionSet>
+            <exclusionSet name="Set_Debug" selected="0" target="Debug">
+                <excludedEntry data="/.*/bin/.*"/>
+                <excludedEntry data="/.*/dsp_src/ameba_vad_handler\.c"/>
+                <excludedEntry data="/.*/bsp/ameba_vad_handler\.c"/>
+                <excludedEntry data="/.*/Xtensa/asm-offsets\.c"/>
+                <excludedEntry data="/.*/application/example1/app_example\.c"/>
+                <excludedEntry data="/.*/application/example1/example1\.c"/>
+                <excludedEntry data="/.*/application/example2/app_example\.c"/>
+                <excludedEntry data="/.*/application/example2/example2\.c"/>
+                <excludedEntry data="/.*/example/example1/app_example\.c"/>
+                <excludedEntry data="/.*/example/example1/example1\.c"/>
+            </exclusionSet>
+            <exclusionSet name="Set_Release" selected="0" target="Release">
+                <excludedEntry data="/.*/bin/.*"/>
+                <excludedEntry data="/.*/dsp_src/ameba_vad_handler\.c"/>
+                <excludedEntry data="/.*/dsp_src/ameba_assert_rom\.c"/>
+                <excludedEntry data="/.*/dsp_src/ameba_vector_rom\.c"/>
+                <excludedEntry data="/.*/dsp_src/ameba_gdma_memcpy\.c"/>
+                <excludedEntry data="/.*/bsp/ameba_vad_handler\.c"/>
+                <excludedEntry data="/.*/Xtensa/hli_vectors\.S"/>
+                <excludedEntry data="/.*/Xtensa/asm-offsets\.c"/>
+                <excludedEntry data="/.*/application/example2/app_example\.c"/>
+                <excludedEntry data="/.*/application/example2/example2\.c"/>
+                <excludedEntry data="/.*/example/example1/app_example\.c"/>
+                <excludedEntry data="/.*/example/example1/example1\.c"/>
+            </exclusionSet>
+        </buildExclusionDatas>
+                                                                                                                                                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </propertyGroup>
+                                                                                                                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <propertyGroup name="build.auto.includes">
+                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <exportDirs autoConsumeDirs="true" includeDepDirs="true" mode="auto"/>
+                                                                                                                                                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </propertyGroup>
+                                                                                                                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <propertyGroup name="library.dependencies"/>
+                                                                                                                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <propertyGroup name="build.custom.steps">
+                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <pre-build enable="false">
+                        
+            <content/>
+                    
+        </pre-build>
+                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <pre-link enable="false">
+                        
+            <content/>
+                    
+        </pre-link>
+                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <post-build enable="true">
+                        
+            <content>cd ${workspace_loc}/../project/img_utility/ &amp;&amp; python post_processing.py &amp;&amp; python elf_process.py &amp;&amp; python dsp_combine.py &amp;&amp; python code_analyze.py</content>
+                    
+        </post-build>
+                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <pre-clean enable="false">
+                        
+            <content/>
+                    
+        </pre-clean>
+                                                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </propertyGroup>
+                                                                                                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</xxProperties>

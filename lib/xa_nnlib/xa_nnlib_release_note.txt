@@ -1,0 +1,16 @@
+xa_nnlib is compiled from "Cadence HiFi 5 Neural Network Library" https://github.com/foss-xtensa/nnlib-hifi5.git
+
+Refer to offical document for more details.
+https://github.com/foss-xtensa/nnlib-hifi5/blob/master/xa_nnlib/doc/HiFi5-NNLib-ProgrammersGuide.pdf
+
+v2.3.0
+https://github.com/foss-xtensa/nnlib-hifi5/blob/master/archive/xa_nnlib_hifi5_09_05_2023.zip
+
+v2.2.0
+https://github.com/foss-xtensa/nnlib-hifi5/blob/master/xws/xa_hifi5_nnlib_lib_2_2_0_api_1_5_src.xws
+
+v1.8.1
+https://github.com/foss-xtensa/nnlib-hifi5/blob/master/xws/xa_hifi5_nnlib_lib_1_8_1_api_1_2_src.xws
+
+v1.7.0
+https://github.com/foss-xtensa/nnlib-hifi5/blob/master/xws/xa_hifi5_nnlib_lib_1_7_0_api_1_1_src.xws

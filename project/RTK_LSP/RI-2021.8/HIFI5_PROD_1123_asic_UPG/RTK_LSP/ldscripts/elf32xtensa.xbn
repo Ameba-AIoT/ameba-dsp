@@ -1,0 +1,783 @@
+/* This linker script generated from xt-genldscripts.tpp for LSP D:/DSP_Project/dsp_sdk/20230823_2/dsp/project/RTK_LSP/RI-2021.8/HIFI5_PROD_1123_asic_UPG/RTK_LSP */
+/* Linker Script for ld -N */
+MEMORY
+{
+  dram0_0_seg :                       	org = 0x1FFC0000, len = 0x20000
+  dram1_0_seg :                       	org = 0x1FFE0000, len = 0x20000
+  sram_dsp_seg :                      	org = 0x20010020, len = 0x6FFE0
+  entry_table_0_seg :                 	org = 0x60300020, len = 0x20
+  extra_reset_mem0_seg :              	org = 0x60301000, len = 0x2E0
+  extra_reset_mem2_seg :              	org = 0x60301400, len = 0x178
+  extra_reset_mem3_seg :              	org = 0x60301578, len = 0x4
+  extra_reset_mem4_seg :              	org = 0x6030157C, len = 0x1C
+  extra_reset_mem5_seg :              	org = 0x60301598, len = 0x8
+  extra_reset_mem6_seg :              	org = 0x603015A0, len = 0x38
+  extra_reset_mem7_seg :              	org = 0x603015D8, len = 0x8
+  extra_reset_mem8_seg :              	org = 0x603015E0, len = 0x38
+  extra_reset_mem9_seg :              	org = 0x60301618, len = 0x8
+  extra_reset_mem10_seg :             	org = 0x60301620, len = 0x38
+  extra_reset_mem11_seg :             	org = 0x60301658, len = 0x8
+  extra_reset_mem12_seg :             	org = 0x60301660, len = 0x38
+  extra_reset_mem13_seg :             	org = 0x60301698, len = 0x4
+  extra_reset_mem14_seg :             	org = 0x6030169C, len = 0x1C
+  extra_reset_mem15_seg :             	org = 0x603016B8, len = 0x4
+  extra_reset_mem16_seg :             	org = 0x603016BC, len = 0x1C
+  extra_reset_mem17_seg :             	org = 0x603016D8, len = 0x4
+  extra_reset_mem18_seg :             	org = 0x603016DC, len = 0x1C
+  extra_reset_mem19_seg :             	org = 0x603016F8, len = 0x400
+  psram0_seg :                        	org = 0x6030BAF8, len = 0xCF4508
+}
+
+PHDRS
+{
+  dram0_0_phdr PT_LOAD;
+  dram0_0_bss_phdr PT_LOAD;
+  dram1_0_phdr PT_LOAD;
+  dram1_0_bss_phdr PT_LOAD;
+  sram_dsp_phdr PT_LOAD;
+  sram_dsp_bss_phdr PT_LOAD;
+  entry_table_0_phdr PT_LOAD;
+  entry_table_0_bss_phdr PT_LOAD;
+  extra_reset_mem0_phdr PT_LOAD;
+  extra_reset_mem1_phdr PT_LOAD;
+  extra_reset_mem2_phdr PT_LOAD;
+  extra_reset_mem3_phdr PT_LOAD;
+  extra_reset_mem4_phdr PT_LOAD;
+  extra_reset_mem5_phdr PT_LOAD;
+  extra_reset_mem6_phdr PT_LOAD;
+  extra_reset_mem7_phdr PT_LOAD;
+  extra_reset_mem8_phdr PT_LOAD;
+  extra_reset_mem9_phdr PT_LOAD;
+  extra_reset_mem10_phdr PT_LOAD;
+  extra_reset_mem11_phdr PT_LOAD;
+  extra_reset_mem12_phdr PT_LOAD;
+  extra_reset_mem13_phdr PT_LOAD;
+  extra_reset_mem14_phdr PT_LOAD;
+  extra_reset_mem15_phdr PT_LOAD;
+  extra_reset_mem16_phdr PT_LOAD;
+  extra_reset_mem17_phdr PT_LOAD;
+  extra_reset_mem18_phdr PT_LOAD;
+  extra_reset_mem19_phdr PT_LOAD;
+  extra_reset_mem19_bss_phdr PT_LOAD;
+  reset_stack_phdr PT_LOAD;
+  psram0_phdr PT_LOAD;
+  psram0_bss_phdr PT_LOAD;
+}
+
+
+/*  Default entry point:  */
+ENTRY(_ResetVector)
+
+
+/*  Memory boundary addresses:  */
+_memmap_mem_dram0_start = 0x1ffc0000;
+_memmap_mem_dram0_end   = 0x1ffe0000;
+_memmap_mem_dram1_start = 0x1ffe0000;
+_memmap_mem_dram1_end   = 0x20000000;
+_memmap_mem_sram_start = 0x20000000;
+_memmap_mem_sram_end   = 0x20080000;
+_memmap_mem_extra_reset_mem_start = 0x60301000;
+_memmap_mem_extra_reset_mem_end   = 0x61000000;
+_memmap_mem_entry_table_start = 0x60300020;
+_memmap_mem_entry_table_end   = 0x60300040;
+
+/*  Memory segment boundary addresses:  */
+_memmap_seg_dram0_0_start = 0x1ffc0000;
+_memmap_seg_dram0_0_max   = 0x1ffe0000;
+_memmap_seg_dram1_0_start = 0x1ffe0000;
+_memmap_seg_dram1_0_max   = 0x20000000;
+_memmap_seg_sram_dsp_start = 0x20010020;
+_memmap_seg_sram_dsp_max   = 0x20080000;
+_memmap_seg_entry_table_0_start = 0x60300020;
+_memmap_seg_entry_table_0_max   = 0x60300040;
+_memmap_seg_extra_reset_mem0_start = 0x60301000;
+_memmap_seg_extra_reset_mem0_max   = 0x603012e0;
+_memmap_seg_extra_reset_mem2_start = 0x60301400;
+_memmap_seg_extra_reset_mem2_max   = 0x60301578;
+_memmap_seg_extra_reset_mem3_start = 0x60301578;
+_memmap_seg_extra_reset_mem3_max   = 0x6030157c;
+_memmap_seg_extra_reset_mem4_start = 0x6030157c;
+_memmap_seg_extra_reset_mem4_max   = 0x60301598;
+_memmap_seg_extra_reset_mem5_start = 0x60301598;
+_memmap_seg_extra_reset_mem5_max   = 0x603015a0;
+_memmap_seg_extra_reset_mem6_start = 0x603015a0;
+_memmap_seg_extra_reset_mem6_max   = 0x603015d8;
+_memmap_seg_extra_reset_mem7_start = 0x603015d8;
+_memmap_seg_extra_reset_mem7_max   = 0x603015e0;
+_memmap_seg_extra_reset_mem8_start = 0x603015e0;
+_memmap_seg_extra_reset_mem8_max   = 0x60301618;
+_memmap_seg_extra_reset_mem9_start = 0x60301618;
+_memmap_seg_extra_reset_mem9_max   = 0x60301620;
+_memmap_seg_extra_reset_mem10_start = 0x60301620;
+_memmap_seg_extra_reset_mem10_max   = 0x60301658;
+_memmap_seg_extra_reset_mem11_start = 0x60301658;
+_memmap_seg_extra_reset_mem11_max   = 0x60301660;
+_memmap_seg_extra_reset_mem12_start = 0x60301660;
+_memmap_seg_extra_reset_mem12_max   = 0x60301698;
+_memmap_seg_extra_reset_mem13_start = 0x60301698;
+_memmap_seg_extra_reset_mem13_max   = 0x6030169c;
+_memmap_seg_extra_reset_mem14_start = 0x6030169c;
+_memmap_seg_extra_reset_mem14_max   = 0x603016b8;
+_memmap_seg_extra_reset_mem15_start = 0x603016b8;
+_memmap_seg_extra_reset_mem15_max   = 0x603016bc;
+_memmap_seg_extra_reset_mem16_start = 0x603016bc;
+_memmap_seg_extra_reset_mem16_max   = 0x603016d8;
+_memmap_seg_extra_reset_mem17_start = 0x603016d8;
+_memmap_seg_extra_reset_mem17_max   = 0x603016dc;
+_memmap_seg_extra_reset_mem18_start = 0x603016dc;
+_memmap_seg_extra_reset_mem18_max   = 0x603016f8;
+_memmap_seg_extra_reset_mem19_start = 0x603016f8;
+_memmap_seg_extra_reset_mem19_max   = 0x60301af8;
+_memmap_seg_psram0_start = 0x6030baf8;
+_memmap_seg_psram0_max   = 0x61000000;
+
+_rom_store_table = 0;
+PROVIDE(_memmap_reset_vector = 0x60301000);
+PROVIDE(_memmap_vecbase_reset = 0x60301400);
+/* Various memory-map dependent cache attribute settings: */
+_memmap_cacheattr_wb_base = 0x00001014;
+_memmap_cacheattr_wt_base = 0x00003034;
+_memmap_cacheattr_bp_base = 0x00004044;
+_memmap_cacheattr_unused_mask = 0xFFFF0F00;
+_memmap_cacheattr_wb_trapnull = 0x44441414;
+_memmap_cacheattr_wba_trapnull = 0x44441414;
+_memmap_cacheattr_wbna_trapnull = 0x44442424;
+_memmap_cacheattr_wt_trapnull = 0x44443434;
+_memmap_cacheattr_bp_trapnull = 0x44444444;
+_memmap_cacheattr_wb_strict = 0x00001014;
+_memmap_cacheattr_wt_strict = 0x00003034;
+_memmap_cacheattr_bp_strict = 0x00004044;
+_memmap_cacheattr_wb_allvalid = 0x44441414;
+_memmap_cacheattr_wt_allvalid = 0x44443434;
+_memmap_cacheattr_bp_allvalid = 0x44444444;
+_memmap_region_map = 0x0000000B;
+PROVIDE(_memmap_cacheattr_reset = _memmap_cacheattr_wb_trapnull);
+
+SECTIONS
+{
+
+  .dram0.rodata : ALIGN(4)
+  {
+    _dram0_rodata_start = ABSOLUTE(.);
+    *(.dram0.rodata)
+    . = ALIGN (4);
+    _dram0_rodata_end = ABSOLUTE(.);
+  } >dram0_0_seg :dram0_0_phdr
+
+  .dram0.data : ALIGN(4)
+  {
+    _dram0_data_start = ABSOLUTE(.);
+    *(.dram0.data)
+    . = ALIGN (4);
+    _dram0_data_end = ABSOLUTE(.);
+  } >dram0_0_seg :dram0_0_phdr
+
+  .dram0.bss (NOLOAD) : ALIGN(8)
+  {
+    . = ALIGN (8);
+    _dram0_bss_start = ABSOLUTE(.);
+    *(.dram0.bss)
+    . = ALIGN (8);
+    _dram0_bss_end = ABSOLUTE(.);
+    _memmap_seg_dram0_0_end = ALIGN(0x8);
+  } >dram0_0_seg :dram0_0_bss_phdr
+
+  _memmap_mem_dram0_max = ABSOLUTE(.);
+
+  .dram1.rodata : ALIGN(4)
+  {
+    _dram1_rodata_start = ABSOLUTE(.);
+    *(.dram1.rodata)
+    . = ALIGN (4);
+    _dram1_rodata_end = ABSOLUTE(.);
+  } >dram1_0_seg :dram1_0_phdr
+
+  .dram1.data : ALIGN(4)
+  {
+    _dram1_data_start = ABSOLUTE(.);
+    *(.dram1.data)
+    . = ALIGN (4);
+    _dram1_data_end = ABSOLUTE(.);
+  } >dram1_0_seg :dram1_0_phdr
+
+  .dram1.bss (NOLOAD) : ALIGN(8)
+  {
+    . = ALIGN (8);
+    _dram1_bss_start = ABSOLUTE(.);
+    *(.dram1.bss)
+    . = ALIGN (8);
+    _dram1_bss_end = ABSOLUTE(.);
+    _memmap_seg_dram1_0_end = ALIGN(0x8);
+  } >dram1_0_seg :dram1_0_bss_phdr
+
+  _memmap_mem_dram1_max = ABSOLUTE(.);
+
+  .sram_dsp.text : ALIGN(4)
+  {
+    _sram_dsp_text_start = ABSOLUTE(.);
+    *(.sram_dsp.literal .sram_dsp.text)
+    . = ALIGN (4);
+    _sram_dsp_text_end = ABSOLUTE(.);
+  } >sram_dsp_seg :sram_dsp_phdr
+
+  .sram_dsp.data : ALIGN(4)
+  {
+    _sram_dsp_data_start = ABSOLUTE(.);
+    *(.sram_dsp.data)
+    . = ALIGN (4);
+    _sram_dsp_data_end = ABSOLUTE(.);
+  } >sram_dsp_seg :sram_dsp_phdr
+
+  .sram_dsp.bss (NOLOAD) : ALIGN(8)
+  {
+    . = ALIGN (8);
+    _sram_dsp_bss_start = ABSOLUTE(.);
+    *(.sram_dsp.bss)
+    . = ALIGN (8);
+    _sram_dsp_bss_end = ABSOLUTE(.);
+    _memmap_seg_sram_dsp_end = ALIGN(0x8);
+  } >sram_dsp_seg :sram_dsp_bss_phdr
+
+  _memmap_mem_sram_max = ABSOLUTE(.);
+
+  .entry_table : ALIGN(4)
+  {
+    _entry_table_start = ABSOLUTE(.);
+    KEEP (*(.entry_table))
+    . = ALIGN (4);
+    _entry_table_end = ABSOLUTE(.);
+  } >entry_table_0_seg :entry_table_0_phdr
+
+  .entry_table.data : ALIGN(4)
+  {
+    _entry_table_data_start = ABSOLUTE(.);
+    *(.entry_table.data)
+    . = ALIGN (4);
+    _entry_table_data_end = ABSOLUTE(.);
+  } >entry_table_0_seg :entry_table_0_phdr
+
+  .entry_table.bss (NOLOAD) : ALIGN(8)
+  {
+    . = ALIGN (8);
+    _entry_table_bss_start = ABSOLUTE(.);
+    *(.entry_table.bss)
+    . = ALIGN (8);
+    _entry_table_bss_end = ABSOLUTE(.);
+    _memmap_seg_entry_table_0_end = ALIGN(0x8);
+  } >entry_table_0_seg :entry_table_0_bss_phdr
+
+  _memmap_mem_entry_table_max = ABSOLUTE(.);
+
+  .ResetVector.text : ALIGN(4)
+  {
+    _ResetVector_text_start = ABSOLUTE(.);
+    KEEP (*(.ResetVector.text))
+    . = ALIGN (4);
+    _ResetVector_text_end = ABSOLUTE(.);
+  } >extra_reset_mem0_seg :extra_reset_mem0_phdr
+
+  .ResetHandler.text : ALIGN(4)
+  {
+    _ResetHandler_text_start = ABSOLUTE(.);
+    *(.ResetHandler.literal .ResetHandler.text)
+    . = ALIGN (4);
+    _ResetHandler_text_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem0_end = ALIGN(0x8);
+  } >extra_reset_mem0_seg :extra_reset_mem0_phdr
+
+
+
+  .WindowVectors.text : ALIGN(4)
+  {
+    _WindowVectors_text_start = ABSOLUTE(.);
+    KEEP (*(.WindowVectors.text))
+    . = ALIGN (4);
+    _WindowVectors_text_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem2_end = ALIGN(0x8);
+  } >extra_reset_mem2_seg :extra_reset_mem2_phdr
+
+
+  .Level2InterruptVector.literal : ALIGN(4)
+  {
+    _Level2InterruptVector_literal_start = ABSOLUTE(.);
+    *(.Level2InterruptVector.literal)
+    . = ALIGN (4);
+    _Level2InterruptVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem3_end = ALIGN(0x8);
+  } >extra_reset_mem3_seg :extra_reset_mem3_phdr
+
+
+  .Level2InterruptVector.text : ALIGN(4)
+  {
+    _Level2InterruptVector_text_start = ABSOLUTE(.);
+    KEEP (*(.Level2InterruptVector.text))
+    . = ALIGN (4);
+    _Level2InterruptVector_text_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem4_end = ALIGN(0x8);
+  } >extra_reset_mem4_seg :extra_reset_mem4_phdr
+
+
+  .Level3InterruptVector.literal : ALIGN(4)
+  {
+    _Level3InterruptVector_literal_start = ABSOLUTE(.);
+    *(.Level3InterruptVector.literal)
+    . = ALIGN (4);
+    _Level3InterruptVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem5_end = ALIGN(0x8);
+  } >extra_reset_mem5_seg :extra_reset_mem5_phdr
+
+
+  .Level3InterruptVector.text : ALIGN(4)
+  {
+    _Level3InterruptVector_text_start = ABSOLUTE(.);
+    KEEP (*(.Level3InterruptVector.text))
+    . = ALIGN (4);
+    _Level3InterruptVector_text_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem6_end = ALIGN(0x8);
+  } >extra_reset_mem6_seg :extra_reset_mem6_phdr
+
+
+  .Level4InterruptVector.literal : ALIGN(4)
+  {
+    _Level4InterruptVector_literal_start = ABSOLUTE(.);
+    *(.Level4InterruptVector.literal)
+    . = ALIGN (4);
+    _Level4InterruptVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem7_end = ALIGN(0x8);
+  } >extra_reset_mem7_seg :extra_reset_mem7_phdr
+
+
+  .Level4InterruptVector.text : ALIGN(4)
+  {
+    _Level4InterruptVector_text_start = ABSOLUTE(.);
+    KEEP (*(.Level4InterruptVector.text))
+    . = ALIGN (4);
+    _Level4InterruptVector_text_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem8_end = ALIGN(0x8);
+  } >extra_reset_mem8_seg :extra_reset_mem8_phdr
+
+
+  .DebugExceptionVector.literal : ALIGN(4)
+  {
+    _DebugExceptionVector_literal_start = ABSOLUTE(.);
+    *(.DebugExceptionVector.literal)
+    . = ALIGN (4);
+    _DebugExceptionVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem9_end = ALIGN(0x8);
+  } >extra_reset_mem9_seg :extra_reset_mem9_phdr
+
+
+  .DebugExceptionVector.text : ALIGN(4)
+  {
+    _DebugExceptionVector_text_start = ABSOLUTE(.);
+    KEEP (*(.DebugExceptionVector.text))
+    . = ALIGN (4);
+    _DebugExceptionVector_text_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem10_end = ALIGN(0x8);
+  } >extra_reset_mem10_seg :extra_reset_mem10_phdr
+
+
+  .NMIExceptionVector.literal : ALIGN(4)
+  {
+    _NMIExceptionVector_literal_start = ABSOLUTE(.);
+    *(.NMIExceptionVector.literal)
+    . = ALIGN (4);
+    _NMIExceptionVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem11_end = ALIGN(0x8);
+  } >extra_reset_mem11_seg :extra_reset_mem11_phdr
+
+
+  .NMIExceptionVector.text : ALIGN(4)
+  {
+    _NMIExceptionVector_text_start = ABSOLUTE(.);
+    KEEP (*(.NMIExceptionVector.text))
+    . = ALIGN (4);
+    _NMIExceptionVector_text_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem12_end = ALIGN(0x8);
+  } >extra_reset_mem12_seg :extra_reset_mem12_phdr
+
+
+  .KernelExceptionVector.literal : ALIGN(4)
+  {
+    _KernelExceptionVector_literal_start = ABSOLUTE(.);
+    *(.KernelExceptionVector.literal)
+    . = ALIGN (4);
+    _KernelExceptionVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem13_end = ALIGN(0x8);
+  } >extra_reset_mem13_seg :extra_reset_mem13_phdr
+
+
+  .KernelExceptionVector.text : ALIGN(4)
+  {
+    _KernelExceptionVector_text_start = ABSOLUTE(.);
+    KEEP (*(.KernelExceptionVector.text))
+    . = ALIGN (4);
+    _KernelExceptionVector_text_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem14_end = ALIGN(0x8);
+  } >extra_reset_mem14_seg :extra_reset_mem14_phdr
+
+
+  .UserExceptionVector.literal : ALIGN(4)
+  {
+    _UserExceptionVector_literal_start = ABSOLUTE(.);
+    *(.UserExceptionVector.literal)
+    . = ALIGN (4);
+    _UserExceptionVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem15_end = ALIGN(0x8);
+  } >extra_reset_mem15_seg :extra_reset_mem15_phdr
+
+
+  .UserExceptionVector.text : ALIGN(4)
+  {
+    _UserExceptionVector_text_start = ABSOLUTE(.);
+    KEEP (*(.UserExceptionVector.text))
+    . = ALIGN (4);
+    _UserExceptionVector_text_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem16_end = ALIGN(0x8);
+  } >extra_reset_mem16_seg :extra_reset_mem16_phdr
+
+
+  .DoubleExceptionVector.literal : ALIGN(4)
+  {
+    _DoubleExceptionVector_literal_start = ABSOLUTE(.);
+    *(.DoubleExceptionVector.literal)
+    . = ALIGN (4);
+    _DoubleExceptionVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem17_end = ALIGN(0x8);
+  } >extra_reset_mem17_seg :extra_reset_mem17_phdr
+
+
+  .DoubleExceptionVector.text : ALIGN(4)
+  {
+    _DoubleExceptionVector_text_start = ABSOLUTE(.);
+    KEEP (*(.DoubleExceptionVector.text))
+    . = ALIGN (4);
+    _DoubleExceptionVector_text_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem18_end = ALIGN(0x8);
+  } >extra_reset_mem18_seg :extra_reset_mem18_phdr
+
+
+  .extra_reset_mem.rodata : ALIGN(4)
+  {
+    _extra_reset_mem_rodata_start = ABSOLUTE(.);
+    *(.extra_reset_mem.rodata)
+    . = ALIGN (4);
+    _extra_reset_mem_rodata_end = ABSOLUTE(.);
+  } >extra_reset_mem19_seg :extra_reset_mem19_phdr
+
+  .extra_reset_mem.text : ALIGN(4)
+  {
+    _extra_reset_mem_text_start = ABSOLUTE(.);
+    *(.extra_reset_mem.literal .extra_reset_mem.text)
+    . = ALIGN (4);
+    _extra_reset_mem_text_end = ABSOLUTE(.);
+  } >extra_reset_mem19_seg :extra_reset_mem19_phdr
+
+  .extra_reset_mem.data : ALIGN(4)
+  {
+    _extra_reset_mem_data_start = ABSOLUTE(.);
+    *(.extra_reset_mem.data)
+    . = ALIGN (4);
+    _extra_reset_mem_data_end = ABSOLUTE(.);
+  } >extra_reset_mem19_seg :extra_reset_mem19_phdr
+
+  .extra_reset_mem.bss (NOLOAD) : ALIGN(8)
+  {
+    . = ALIGN (8);
+    _extra_reset_mem_bss_start = ABSOLUTE(.);
+    *(.extra_reset_mem.bss)
+    . = ALIGN (8);
+    _extra_reset_mem_bss_end = ABSOLUTE(.);
+    _memmap_seg_extra_reset_mem19_end = ALIGN(0x8);
+  } >extra_reset_mem19_seg :extra_reset_mem19_bss_phdr
+
+
+  _end = 0x60301af8;
+  PROVIDE(end = 0x60301af8);
+  _stack_sentry = 0x60301af8;
+  PROVIDE(__stack = 0x6030baf0);
+  _heap_sentry = 0x6030baf0;
+
+  .ipc_table : ALIGN(4)
+  {
+    _ipc_table_start = ABSOLUTE(.);
+    *(.ipc_table)
+    . = ALIGN (4);
+    _ipc_table_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .command : ALIGN(4)
+  {
+    _command_start = ABSOLUTE(.);
+    *(.command)
+    . = ALIGN (4);
+    _command_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .sram.rodata : ALIGN(4)
+  {
+    _sram_rodata_start = ABSOLUTE(.);
+    *(.sram.rodata)
+    . = ALIGN (4);
+    _sram_rodata_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .clib.rodata : ALIGN(4)
+  {
+    _clib_rodata_start = ABSOLUTE(.);
+    *(.clib.rodata)
+    . = ALIGN (4);
+    _clib_rodata_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .rtos.rodata : ALIGN(4)
+  {
+    _rtos_rodata_start = ABSOLUTE(.);
+    *(.rtos.rodata)
+    . = ALIGN (4);
+    _rtos_rodata_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .rodata : ALIGN(4)
+  {
+    _rodata_start = ABSOLUTE(.);
+    *(.rodata)
+    *(SORT(.rodata.sort.*))
+    KEEP (*(SORT(.rodata.keepsort.*) .rodata.keep.*))
+    *(.rodata.*)
+    *(.gnu.linkonce.r.*)
+    *(.rodata1)
+    __XT_EXCEPTION_TABLE__ = ABSOLUTE(.);
+    KEEP (*(.xt_except_table))
+    KEEP (*(.gcc_except_table))
+    *(.gnu.linkonce.e.*)
+    *(.gnu.version_r)
+    PROVIDE (__eh_frame_start = .);
+    KEEP (*(.eh_frame))
+    PROVIDE (__eh_frame_end = .);
+    /*  C++ constructor and destructor tables, properly ordered:  */
+    KEEP (*crtbegin.o(.ctors))
+    KEEP (*(EXCLUDE_FILE (*crtend.o) .ctors))
+    KEEP (*(SORT(.ctors.*)))
+    KEEP (*(.ctors))
+    KEEP (*crtbegin.o(.dtors))
+    KEEP (*(EXCLUDE_FILE (*crtend.o) .dtors))
+    KEEP (*(SORT(.dtors.*)))
+    KEEP (*(.dtors))
+    /*  C++ exception handlers table:  */
+    __XT_EXCEPTION_DESCS__ = ABSOLUTE(.);
+    *(.xt_except_desc)
+    *(.gnu.linkonce.h.*)
+    __XT_EXCEPTION_DESCS_END__ = ABSOLUTE(.);
+    *(.xt_except_desc_end)
+    *(.dynamic)
+    *(.gnu.version_d)
+    . = ALIGN(4);		/* this table MUST be 4-byte aligned */
+    _bss_table_start = ABSOLUTE(.);
+    LONG(_dram0_bss_start)
+    LONG(_dram0_bss_end)
+    LONG(_dram1_bss_start)
+    LONG(_dram1_bss_end)
+    LONG(_sram_dsp_bss_start)
+    LONG(_sram_dsp_bss_end)
+    LONG(_entry_table_bss_start)
+    LONG(_entry_table_bss_end)
+    LONG(_extra_reset_mem_bss_start)
+    LONG(_extra_reset_mem_bss_end)
+    LONG(_bss_start)
+    LONG(_bss_end)
+    _bss_table_end = ABSOLUTE(.);
+    . = ALIGN (4);
+    _rodata_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .sram.text : ALIGN(4)
+  {
+    _sram_text_start = ABSOLUTE(.);
+    *(.sram.literal .sram.text)
+    . = ALIGN (4);
+    _sram_text_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .text : ALIGN(4)
+  {
+    _stext = .;
+    _text_start = ABSOLUTE(.);
+    *(.entry.text)
+    *(.init.literal)
+    KEEP(*(.init))
+    *(.literal.sort.* SORT(.text.sort.*))
+    KEEP (*(.literal.keepsort.* SORT(.text.keepsort.*) .literal.keep.* .text.keep.* .literal.*personality* .text.*personality*))
+    *(.literal .text .literal.* .text.* .stub .gnu.warning .gnu.linkonce.literal.* .gnu.linkonce.t.*.literal .gnu.linkonce.t.*)
+    *(.fini.literal)
+    KEEP(*(.fini))
+    *(.gnu.version)
+    . = ALIGN (4);
+    _text_end = ABSOLUTE(.);
+    _etext = .;
+  } >psram0_seg :psram0_phdr
+
+  .clib.text : ALIGN(4)
+  {
+    _clib_text_start = ABSOLUTE(.);
+    *(.clib.literal .clib.text)
+    . = ALIGN (4);
+    _clib_text_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .rtos.text : ALIGN(4)
+  {
+    _rtos_text_start = ABSOLUTE(.);
+    *(.rtos.literal .rtos.text)
+    . = ALIGN (4);
+    _rtos_text_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .clib.data : ALIGN(4)
+  {
+    _clib_data_start = ABSOLUTE(.);
+    *(.clib.data)
+    . = ALIGN (4);
+    _clib_data_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .clib.percpu.data : ALIGN(4)
+  {
+    _clib_percpu_data_start = ABSOLUTE(.);
+    *(.clib.percpu.data)
+    . = ALIGN (4);
+    _clib_percpu_data_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .rtos.percpu.data : ALIGN(4)
+  {
+    _rtos_percpu_data_start = ABSOLUTE(.);
+    *(.rtos.percpu.data)
+    . = ALIGN (4);
+    _rtos_percpu_data_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .rtos.data : ALIGN(4)
+  {
+    _rtos_data_start = ABSOLUTE(.);
+    *(.rtos.data)
+    . = ALIGN (4);
+    _rtos_data_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .sram.data : ALIGN(4)
+  {
+    _sram_data_start = ABSOLUTE(.);
+    *(.sram.data)
+    . = ALIGN (4);
+    _sram_data_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .data : ALIGN(4)
+  {
+    _data_start = ABSOLUTE(.);
+    *(.data)
+    *(SORT(.data.sort.*))
+    KEEP (*(SORT(.data.keepsort.*) .data.keep.*))
+    *(.data.*)
+    *(.gnu.linkonce.d.*)
+    KEEP(*(.gnu.linkonce.d.*personality*))
+    *(.data1)
+    *(.sdata)
+    *(.sdata.*)
+    *(.gnu.linkonce.s.*)
+    *(.sdata2)
+    *(.sdata2.*)
+    *(.gnu.linkonce.s2.*)
+    KEEP(*(.jcr))
+    *(__llvm_prf_cnts)
+    *(__llvm_prf_data)
+    *(__llvm_prf_vnds)
+    . = ALIGN (4);
+    _data_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  __llvm_prf_names : ALIGN(4)
+  {
+    __llvm_prf_names_start = ABSOLUTE(.);
+    *(__llvm_prf_names)
+    . = ALIGN (4);
+    __llvm_prf_names_end = ABSOLUTE(.);
+  } >psram0_seg :psram0_phdr
+
+  .bss (NOLOAD) : ALIGN(8)
+  {
+    . = ALIGN (8);
+    _bss_start = ABSOLUTE(.);
+    *(.dynsbss)
+    *(.sbss)
+    *(.sbss.*)
+    *(.gnu.linkonce.sb.*)
+    *(.scommon)
+    *(.sbss2)
+    *(.sbss2.*)
+    *(.gnu.linkonce.sb2.*)
+    *(.dynbss)
+    *(.bss)
+    *(SORT(.bss.sort.*))
+    KEEP (*(SORT(.bss.keepsort.*) .bss.keep.*))
+    *(.bss.*)
+    *(.gnu.linkonce.b.*)
+    *(COMMON)
+    *(.clib.bss)
+    *(.clib.percpu.bss)
+    *(.rtos.percpu.bss)
+    *(.rtos.bss)
+    *(.sram.bss)
+    . = ALIGN (8);
+    _bss_end = ABSOLUTE(.);
+    _memmap_seg_psram0_end = ALIGN(0x8);
+  } >psram0_seg :psram0_bss_phdr
+
+
+  _memmap_mem_extra_reset_mem_max = ABSOLUTE(.);
+
+  .debug  0 :  { *(.debug) }
+  .line  0 :  { *(.line) }
+  .debug_srcinfo  0 :  { *(.debug_srcinfo) }
+  .debug_sfnames  0 :  { *(.debug_sfnames) }
+  .debug_aranges  0 :  { *(.debug_aranges) }
+  .debug_pubnames  0 :  { *(.debug_pubnames) }
+  .debug_info  0 :  { *(.debug_info) }
+  .debug_abbrev  0 :  { *(.debug_abbrev) }
+  .debug_line  0 :  { *(.debug_line) }
+  .debug_frame  0 :  { *(.debug_frame) }
+  .debug_str  0 :  { *(.debug_str) }
+  .debug_loc  0 :  { *(.debug_loc) }
+  .debug_macinfo  0 :  { *(.debug_macinfo) }
+  .debug_weaknames  0 :  { *(.debug_weaknames) }
+  .debug_funcnames  0 :  { *(.debug_funcnames) }
+  .debug_typenames  0 :  { *(.debug_typenames) }
+  .debug_varnames  0 :  { *(.debug_varnames) }
+  .xt.insn 0 :
+  {
+    KEEP (*(.xt.insn))
+    KEEP (*(.gnu.linkonce.x.*))
+  }
+  .xt.prop 0 :
+  {
+    *(.xt.prop)
+    *(.xt.prop.*)
+    *(.gnu.linkonce.prop.*)
+  }
+  .xt.lit 0 :
+  {
+    *(.xt.lit)
+    *(.xt.lit.*)
+    *(.gnu.linkonce.p.*)
+  }
+  .debug.xt.callgraph 0 :
+  {
+    KEEP (*(.debug.xt.callgraph .debug.xt.callgraph.* .gnu.linkonce.xt.callgraph.*))
+  }
+  .note.gnu.build-id 0 :
+  {
+    KEEP(*(.note.gnu.build-id))
+  }
+}
+

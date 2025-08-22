@@ -1,0 +1,6 @@
+- { construct: include, filename: xtensa-core/hw-maps }
+- { construct: include, filename: xtensa-core/default-maps }
+- { construct: include, filename: xtensa-core/default-system }
+- { construct: include, filename: xtensa-core/sw-sections }
+- { construct: include, filename: xtensa-core/vectors }
+- { construct: memory, name: extra_reset_mem, description: extra_reset_mem, space: physical, startaddr: 0x60301000, size: 0x400000, attrs: { device: 0, writable: 1 }, }

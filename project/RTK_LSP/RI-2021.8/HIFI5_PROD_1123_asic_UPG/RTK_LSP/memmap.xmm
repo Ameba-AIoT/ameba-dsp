@@ -1,0 +1,106 @@
+//  Memory map file to generate linker scripts for programs without board I/O.
+
+// Customer ID=18150; Build=0xa0d8c; Copyright (c) 2004-2015 Cadence Design Systems, Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining
+// a copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to
+// permit persons to whom the Software is furnished to do so, subject to
+// the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+// A memory map is a sequence of memory descriptions and
+// optional parameter assignments.
+//
+// Each memory description has the following format:
+//   BEGIN <name>
+//     <addr> [,<paddr>] : <mem-type> : <mem-name> : <size> [,<psize>]
+//                       : [writable] [,executable] [,device] ;
+//     <segment>*
+//   END <name>
+//
+// where each <segment> description has the following format:
+//     <seg-name> : F|C : <start-addr> - <end-addr> [ : STACK ] [ : HEAP ]
+//                : <section-name>* ;
+//
+// Each parameter assignment is a keyword/value pair in the following format:
+//   <keyword> = <value>                (no spaces in <value>)
+// or
+//   <keyword> = "<value>"              (spaces allowed in <value>)
+//
+// The following primitives are also defined:
+//   PLACE SECTIONS( <section-name>* ) { WITH_SECTION(<section-name>)
+//                                       | IN_SEGMENT(<seg-name>) }
+//
+//   NOLOAD <section-name1> [ <section-name2> ... ]
+//
+// Please refer to the Xtensa LSP Reference Manual for more details.
+//
+
+VECBASE=0x60301400
+
+
+// Additions for -mvecreset option:
+VECRESET=0x60301000
+
+
+// Additions for -mvecselect option:
+VECSELECT=0x1
+
+BEGIN dram0
+0x1ffc0000: dataRam : dram0 : 0x20000 : writable ;
+ dram0_0 : C : 0x1ffc0000 - 0x1ffdffff : .dram0.rodata .dram0.data .dram0.bss;
+END dram0
+
+BEGIN dram1
+0x1ffe0000: dataRam : dram1 : 0x20000 : writable ;
+ dram1_0 : C : 0x1ffe0000 - 0x1fffffff : .dram1.rodata .dram1.data .dram1.bss;
+END dram1
+
+BEGIN sram
+0x20000000: sysram : sram : 0x80000 : executable, writable ;
+ sram_dsp : C : 0x20010020 - 0x2007ffff : .sram_dsp.literal .sram_dsp.text .sram_dsp.data .sram_dsp.bss;
+END sram
+
+BEGIN extra_reset_mem
+0x60301000: sysram : extra_reset_mem : 0xcff000 : executable, writable ;
+ extra_reset_mem0 : F : 0x60301000 - 0x603012df : .ResetVector.text .ResetHandler.literal .ResetHandler.text;
+ extra_reset_mem1 : C : 0x603012e0 - 0x603013ff : ;
+ extra_reset_mem2 : F : 0x60301400 - 0x60301577 : .WindowVectors.text;
+ extra_reset_mem3 : C : 0x60301578 - 0x6030157b : .Level2InterruptVector.literal;
+ extra_reset_mem4 : F : 0x6030157c - 0x60301597 : .Level2InterruptVector.text;
+ extra_reset_mem5 : C : 0x60301598 - 0x6030159f : .Level3InterruptVector.literal;
+ extra_reset_mem6 : F : 0x603015a0 - 0x603015d7 : .Level3InterruptVector.text;
+ extra_reset_mem7 : C : 0x603015d8 - 0x603015df : .Level4InterruptVector.literal;
+ extra_reset_mem8 : F : 0x603015e0 - 0x60301617 : .Level4InterruptVector.text;
+ extra_reset_mem9 : C : 0x60301618 - 0x6030161f : .DebugExceptionVector.literal;
+ extra_reset_mem10 : F : 0x60301620 - 0x60301657 : .DebugExceptionVector.text;
+ extra_reset_mem11 : C : 0x60301658 - 0x6030165f : .NMIExceptionVector.literal;
+ extra_reset_mem12 : F : 0x60301660 - 0x60301697 : .NMIExceptionVector.text;
+ extra_reset_mem13 : C : 0x60301698 - 0x6030169b : .KernelExceptionVector.literal;
+ extra_reset_mem14 : F : 0x6030169c - 0x603016b7 : .KernelExceptionVector.text;
+ extra_reset_mem15 : C : 0x603016b8 - 0x603016bb : .UserExceptionVector.literal;
+ extra_reset_mem16 : F : 0x603016bc - 0x603016d7 : .UserExceptionVector.text;
+ extra_reset_mem17 : C : 0x603016d8 - 0x603016db : .DoubleExceptionVector.literal;
+ extra_reset_mem18 : F : 0x603016dc - 0x603016f7 : .DoubleExceptionVector.text;
+ extra_reset_mem19 : C : 0x603016f8 - 0x60301af7 : .extra_reset_mem.rodata .extra_reset_mem.literal .extra_reset_mem.text .extra_reset_mem.data .extra_reset_mem.bss;
+ psram0 : C : 0x6030baf8 - 0x60ffffff : .ipc_table .command .sram.rodata .clib.rodata .rtos.rodata .rodata .sram.literal .literal .rtos.literal .clib.literal .sram.text .text .clib.text .rtos.text .clib.data .clib.percpu.data .rtos.percpu.data .rtos.data .sram.data .data __llvm_prf_names .clib.bss .clib.percpu.bss .rtos.percpu.bss .rtos.bss .sram.bss .bss;
+ reset_stack : C : 0x60301af8 - 0x6030baf7 :  STACK :  HEAP : ;
+END extra_reset_mem
+BEGIN entry_table
+0x60300020: sysram : entry_table : 0x20 : writable, executable ;
+ entry_table_0 : F : 0x60300020 - 0x6030003f : .entry_table .entry_table.data .entry_table.bss;
+END entry_table
